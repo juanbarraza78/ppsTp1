@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()" color="primary"> Home </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goRegister()" color="primary"> Register </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="header">
+    <h1>Login</h1>
+    <img src="../../../assets/user.jpg" alt="">
+  </div>
+  <form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+      <ion-item color="primary">
+        <ion-input type="email" label="Email" placeholder="Enter your Email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item color="primary">
+        <ion-input type="password" label="Password" placeholder="Enter your Password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" shape="round">Join Us</ion-button>
+      <ion-toast color="danger" [isOpen]="isToastOpen" message="Incorrect Password or Email" [duration]="3000" (didDismiss)="setOpen(false)"></ion-toast>
+  </form>
+  <p>B pressing 'Joun Us' you agree to <br> our terms & conditions. </p>
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      +
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="tertiary" (click)="userA()">
+        A
+      </ion-fab-button>
+      <ion-fab-button color="success" (click)="userB()">
+        B
+      </ion-fab-button>
+      <ion-fab-button color="secondary" (click)="userC()">
+        C 
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
